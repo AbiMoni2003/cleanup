@@ -13,7 +13,7 @@ public class InactiveUserCleanupTask {
         this.userService = userService;
     }
 
-    @Scheduled(cron = "* * * * * ?") // Runs every day at midnight
+    @Scheduled(cron = "* * * * * ?")
     public void performCleanup() {
         UserResponseDto response = userService.deleteInactiveUsers();
         System.out.println("Cleanup task completed: " + response.getMessage() + ", Users deleted: " + response.getDeletedUserCount());
